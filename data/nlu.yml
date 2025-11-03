@@ -1,92 +1,216 @@
 version: "2.0"
-
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
 
+# ===============================
+# 1️⃣ LISTAR ARCHIVOS
+# ===============================
+- intent: listar_archivos
+  examples: |
+    - ¿Qué comando se usa para listar los archivos en un directorio?
+    - ¿Cómo puedo ver los archivos en una carpeta?
+    - ¿Cómo listar archivos en Linux?
+    - Comando para ver archivos
+    - ¿Qué comando muestra el contenido de una carpeta?
+    - ¿Cómo verifico qué archivos hay en una ruta?
+    - ¿Cuál es el comando para listar todo en el directorio actual?
+    - Enséñame cómo listar los archivos ocultos
+    - ¿Cómo puedo mostrar los archivos y carpetas ocultas?
+    - ¿Cómo se usa `ls` en Linux?
+    - ¿Qué diferencia hay entre `ls` y `ls -l`?
+    - Quiero ver los archivos con detalles
+
+# ===============================
+# 2️⃣ CAMBIAR DIRECTORIO
+# ===============================
+- intent: cambiar_directorio
+  examples: |
+    - ¿Cómo puedo cambiar de directorio en la terminal de Linux?
+    - ¿Cómo entrar en otra carpeta?
+    - comando para cambiar de carpeta
+    - cómo uso cd
+    - ¿Qué comando me sirve para moverme entre carpetas?
+    - ¿Cómo regreso al directorio anterior?
+    - ¿Cómo vuelvo a la carpeta principal?
+    - ¿Cómo ir a la raíz del sistema?
+    - ¿Cómo acceder a una ruta específica?
+    - Quiero entrar en una carpeta diferente
+    - ¿Qué hace el comando cd ..?
+    - ¿Cómo puedo moverme a /home?
+
+# ===============================
+# 3️⃣ MOSTRAR RUTA ACTUAL
+# ===============================
+- intent: ruta_actual
+  examples: |
+    - ¿Qué comando muestra la ruta actual en la que me encuentro?
+    - comando para saber en qué carpeta estoy
+    - cómo ver la ruta actual
+    - cómo saber mi ubicación en Linux
+    - ¿Cómo puedo ver el directorio actual?
+    - ¿Qué comando me muestra mi posición actual?
+    - ¿Cómo saber en qué parte del sistema de archivos estoy?
+    - ¿Cómo usar `pwd`?
+    - Quiero conocer mi ruta actual
+    - ¿Cómo verifico en qué carpeta estoy ubicado?
+
+# ===============================
+# 4️⃣ CREAR DIRECTORIO
+# ===============================
+- intent: crear_directorio
+  examples: |
+    - ¿Cómo creo un nuevo directorio desde la terminal?
+    - comando para crear carpeta
+    - crear un folder en Linux
+    - cómo usar mkdir
+    - ¿Qué hace el comando mkdir?
+    - Quiero crear una carpeta nueva
+    - ¿Cómo puedo crear varias carpetas a la vez?
+    - ¿Cómo crear una carpeta dentro de otra?
+    - ¿Cómo generar una estructura de carpetas?
+    - Crear un directorio con permisos específicos
+    - Comando para generar un nuevo directorio
+
+# ===============================
+# 5️⃣ COPIAR ARCHIVOS Y CARPETAS
+# ===============================
+- intent: copiar_archivos
+  examples: |
+    - ¿Qué comando sirve para copiar un archivo o carpeta?
+    - cómo copiar un archivo
+    - comando para copiar carpetas
+    - cómo usar cp
+    - ¿Cómo duplicar un archivo?
+    - ¿Qué diferencia hay entre `cp` y `cp -r`?
+    - ¿Cómo copiar un archivo a otra carpeta?
+    - ¿Cómo copiar varios archivos a la vez?
+    - Quiero copiar un archivo dentro del mismo directorio
+    - ¿Cómo copiar archivos ocultos?
+    - ¿Cómo sobrescribir un archivo al copiar?
+    - Copiar una carpeta completa
+
+# ===============================
+# 6️⃣ ELIMINAR ARCHIVOS Y CARPETAS
+# ===============================
+- intent: eliminar_archivos
+  examples: |
+    - ¿Cómo elimino un archivo o carpeta en Linux?
+    - comando para borrar archivos
+    - eliminar una carpeta
+    - cómo usar rm
+    - ¿Qué comando elimina archivos?
+    - ¿Cómo borro una carpeta que tiene contenido?
+    - ¿Cómo eliminar varios archivos al mismo tiempo?
+    - Quiero eliminar todo dentro de una carpeta
+    - ¿Cómo eliminar archivos ocultos?
+    - ¿Qué hace el comando `rm -rf`?
+    - ¿Cómo limpiar una carpeta?
+    - Eliminar archivos sin pedir confirmación
+
+# ===============================
+# 7️⃣ MOSTRAR CONTENIDO DE ARCHIVOS
+# ===============================
+- intent: mostrar_contenido
+  examples: |
+    - ¿Qué comando muestra el contenido de un archivo de texto?
+    - cómo ver lo que hay dentro de un archivo
+    - comando para leer archivos
+    - cómo usar cat o less
+    - ¿Cómo puedo mostrar el contenido completo de un archivo?
+    - ¿Qué diferencia hay entre cat, less y more?
+    - ¿Cómo leer un archivo grande?
+    - ¿Cómo puedo avanzar página por página?
+    - Ver contenido de archivo en terminal
+    - Mostrar texto desde consola
+    - Quiero revisar lo que contiene un archivo
+
+# ===============================
+# 8️⃣ CAMBIAR PERMISOS
+# ===============================
+- intent: cambiar_permisos
+  examples: |
+    - ¿Cómo cambio los permisos de un archivo?
+    - comando para modificar permisos
+    - cómo usar chmod
+    - permisos de archivos en Linux
+    - ¿Qué significan los números en chmod?
+    - ¿Cómo dar permisos de ejecución a un archivo?
+    - Quitar permisos a otros usuarios
+    - Asignar permisos de lectura y escritura
+    - ¿Cómo ver los permisos actuales?
+    - ¿Qué hace `chmod 755`?
+    - Cambiar permisos de una carpeta completa
+
+# ===============================
+# 9️⃣ MOSTRAR PROCESOS EN EJECUCIÓN
+# ===============================
+- intent: mostrar_procesos
+  examples: |
+    - ¿Qué comando muestra los procesos en ejecución?
+    - comando para ver procesos
+    - cómo ver qué programas están corriendo
+    - cómo usar top o ps
+    - ¿Qué comando sirve para ver los procesos activos?
+    - ¿Cómo detener un proceso?
+    - ¿Cómo listar todos los procesos del sistema?
+    - ¿Cómo filtrar procesos por nombre?
+    - Ver qué proceso está consumiendo más CPU
+    - ¿Qué hace el comando `htop`?
+    - Monitorear el sistema desde la terminal
+
+# ===============================
+# 🔟 BUSCAR PALABRAS EN ARCHIVOS
+# ===============================
+- intent: buscar_palabra
+  examples: |
+    - ¿Cómo busco una palabra dentro de un archivo de texto?
+    - comando para buscar palabras en archivos
+    - cómo usar grep
+    - buscar texto dentro de archivo
+    - ¿Qué hace el comando grep?
+    - ¿Cómo buscar texto en varios archivos a la vez?
+    - Buscar palabras sin importar mayúsculas o minúsculas
+    - Mostrar líneas que contienen una palabra
+    - ¿Cómo usar grep con expresiones regulares?
+    - Buscar coincidencias en todo el directorio
+    - Encontrar texto en archivos de configuración
+
+# ===============================
+# 🟢 SALUDOS
+# ===============================
+# ===============================
+# 🟢 SALUDOS
+# ===============================
+- intent: saludo
+  examples: |
+    - hola
+    - buenos días
+    - buenas tardes
+    - buenas noches
+    - qué tal
+    - cómo estás
+    - hola bot
+    - hola amigo
+    - hey
+    - hola asistente
+    - saludos
+    - qué hay
+    - hola cómo te va
+    - hola linux
+    - buenas
+    - muy buenas
+    - hola, ¿qué tal?
+    - hola, necesito ayuda
+    - hola, una pregunta
+
+
+# ===============================
+# 🔴 DESPEDIDA
+# ===============================
 - intent: goodbye
   examples: |
-    - good afternoon
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
-
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+    - adiós
+    - hasta luego
+    - nos vemos
+    - chau
+    - me despido
+    - gracias, hasta pronto
