@@ -1,79 +1,74 @@
 version: "2.0"
 
-rules:
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
 
-# ==============================
-# SALUDOS Y DESPEDIDAS
-# ==============================
-- rule: Responder al saludo
-  steps:
-  - intent: saludo
-  - action: utter_saludo
+intents:
+  - saludo
+  - listar_archivos
+  - cambiar_directorio
+  - ruta_actual
+  - crear_directorio
+  - copiar_archivos
+  - eliminar_archivos
+  - mostrar_contenido
+  - cambiar_permisos
+  - mostrar_procesos
+  - buscar_palabra
+  - goodbye
+  - bot_challenge
 
-- rule: Dar la bienvenida
-  steps:
-  - intent: saludo
-  - action: utter_bienvenida
+responses:
+  utter_bienvenida:
+  - text: "👋 ¡Hola! Soy tu asistente de comandos Linux. Puedo ayudarte a aprender los comandos más útiles del sistema. 😊"
+  - text: "🐧 ¡Bienvenido al asistente Linux! Estoy aquí para enseñarte comandos paso a paso. ¿Cuál te gustaría aprender primero?"
+  - text: "💻 ¡Hola y bienvenido al asistente Linux! Pregúntame cómo listar archivos, crear carpetas o buscar texto dentro de archivos."
 
-- rule: Despedirse
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  utter_goodbye:
+  - text: "¡Hasta luego! 👋 Espero haberte ayudado con tus comandos de Linux."
+  - text: "Adiós 👋 ¡Vuelve cuando quieras practicar más comandos!"
+  - text: "Nos vemos pronto 🐧 ¡Sigue explorando el mundo Linux!"
 
-- rule: Responder al desafío del bot
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  utter_iamabot:
+  - text: "Soy un asistente virtual creado con Rasa 🤖. Estoy aquí para ayudarte con comandos de Linux."
+  - text: "Sí, soy un bot, pero uno muy simpático 😄 que te enseña Linux paso a paso."
 
-# ==============================
-# COMANDOS DE LINUX
-# ==============================
-- rule: Explicar cómo listar archivos
-  steps:
-  - intent: listar_archivos
-  - action: utter_listar_archivos
+  utter_saludo:
+  - text: "¡Hola! 👋 Soy tu asistente de comandos Linux. ¿En qué comando te puedo ayudar hoy?"
+  - text: "¡Qué gusto verte otra vez! 😊 ¿Listo para aprender un nuevo comando de Linux?"
+  - text: "¡Hola otra vez! 😄 Cuéntame, ¿qué comando te gustaría que te explique?"
+  - text: "¡Hey! 👋 Bienvenido de nuevo al asistente Linux, ¿en qué te ayudo hoy?"
+  - text: "¡Buenas! 😎 Estoy listo para ayudarte con cualquier comando que necesites."
 
-- rule: Explicar cómo cambiar directorio
-  steps:
-  - intent: cambiar_directorio
-  - action: utter_cambiar_directorio
+  utter_listar_archivos:
+  - text: "Usa el comando `ls` para listar los archivos. Si deseas ver más detalles, utiliza `ls -l`."
 
-- rule: Explicar cómo ver la ruta actual
-  steps:
-  - intent: ruta_actual
-  - action: utter_ruta_actual
+  utter_cambiar_directorio:
+  - text: "Utiliza el comando `cd nombre_del_directorio` para moverte entre carpetas."
 
-- rule: Explicar cómo crear directorio
-  steps:
-  - intent: crear_directorio
-  - action: utter_crear_directorio
+  utter_ruta_actual:
+  - text: "El comando `pwd` muestra la ruta completa del directorio actual."
 
-- rule: Explicar cómo copiar archivos
-  steps:
-  - intent: copiar_archivos
-  - action: utter_copiar_archivos
+  utter_crear_directorio:
+  - text: "Para crear un nuevo directorio utiliza `mkdir nombre_directorio`."
 
-- rule: Explicar cómo eliminar archivos
-  steps:
-  - intent: eliminar_archivos
-  - action: utter_eliminar_archivos
+  utter_copiar_archivos:
+  - text: "Para copiar un archivo usa `cp archivo_origen destino`. Si deseas copiar una carpeta completa, usa `cp -r carpeta_origen destino`."
 
-- rule: Explicar cómo mostrar contenido de archivos
-  steps:
-  - intent: mostrar_contenido
-  - action: utter_mostrar_contenido
+  utter_eliminar_archivos:
+  - text: "Usa `rm nombre_archivo` para eliminar un archivo, o `rm -r nombre_carpeta` para eliminar una carpeta con todo su contenido."
 
-- rule: Explicar cómo cambiar permisos
-  steps:
-  - intent: cambiar_permisos
-  - action: utter_cambiar_permisos
+  utter_mostrar_contenido:
+  - text: "Puedes usar `cat archivo.txt` para mostrar el contenido completo, o `less archivo.txt` y `more archivo.txt` para visualizarlo página por página."
 
-- rule: Explicar cómo mostrar procesos
-  steps:
-  - intent: mostrar_procesos
-  - action: utter_mostrar_procesos
+  utter_cambiar_permisos:
+  - text: "Utiliza el comando `chmod` seguido de los permisos deseados, por ejemplo: `chmod 755 archivo` o `chmod u+x archivo`."
 
-- rule: Explicar cómo buscar palabras
-  steps:
-  - intent: buscar_palabra
-  - action: utter_buscar_palabra
+  utter_mostrar_procesos:
+  - text: "Para ver los procesos activos usa `ps`, `top` o `htop` (si está instalado)."
+
+  utter_buscar_palabra:
+  - text: "Usa el comando `grep palabra archivo.txt` para buscar coincidencias dentro del archivo."
+
+actions: []

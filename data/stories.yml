@@ -1,22 +1,93 @@
 version: "2.0"
 
 stories:
-- story: Saludo inicial
-  steps:
-    - action: action_session_start
-    - action: utter_bienvenida
 
+# ==============================
+# FLUJOS DE CONVERSACIÓN BÁSICOS
+# ==============================
 - story: Usuario saluda
   steps:
-    - intent: saludo
-    - action: utter_saludo
+  - intent: saludo
+  - action: utter_saludo
 
 - story: Usuario se despide
   steps:
-    - intent: goodbye
-    - action: utter_goodbye
+  - intent: goodbye
+  - action: utter_goodbye
 
 - story: Pregunta si eres un bot
   steps:
-    - intent: bot_challenge
-    - action: utter_iamabot
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+# ==============================
+# COMANDOS DE LINUX - HISTORIAS ESPECÍFICAS
+# ==============================
+- story: Consulta sobre listar archivos
+  steps:
+  - intent: listar_archivos
+  - action: utter_listar_archivos
+
+- story: Consulta sobre cambiar directorio
+  steps:
+  - intent: cambiar_directorio
+  - action: utter_cambiar_directorio
+
+- story: Consulta sobre ruta actual
+  steps:
+  - intent: ruta_actual
+  - action: utter_ruta_actual
+
+- story: Consulta sobre crear directorio
+  steps:
+  - intent: crear_directorio
+  - action: utter_crear_directorio
+
+- story: Consulta sobre copiar archivos
+  steps:
+  - intent: copiar_archivos
+  - action: utter_copiar_archivos
+
+- story: Consulta sobre eliminar archivos
+  steps:
+  - intent: eliminar_archivos
+  - action: utter_eliminar_archivos
+
+- story: Consulta sobre mostrar contenido
+  steps:
+  - intent: mostrar_contenido
+  - action: utter_mostrar_contenido
+
+- story: Consulta sobre cambiar permisos
+  steps:
+  - intent: cambiar_permisos
+  - action: utter_cambiar_permisos
+
+- story: Consulta sobre mostrar procesos
+  steps:
+  - intent: mostrar_procesos
+  - action: utter_mostrar_procesos
+
+- story: Consulta sobre buscar palabras
+  steps:
+  - intent: buscar_palabra
+  - action: utter_buscar_palabra
+
+# ==============================
+# FLUJOS DE CONVERSACIÓN COMPLEJOS
+# ==============================
+- story: Saludo y consulta de comando
+  steps:
+  - intent: saludo
+  - action: utter_saludo
+  - intent: listar_archivos
+  - action: utter_listar_archivos
+
+- story: Múltiples consultas de comandos
+  steps:
+  - intent: listar_archivos
+  - action: utter_listar_archivos
+  - intent: cambiar_directorio
+  - action: utter_cambiar_directorio
+  - intent: ruta_actual
+  - action: utter_ruta_actual
